@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweet Cake Bakery | Mumbai</title>
+    <style>
+        /* --- CSS STYLES --- */
+        :root {
+            --primary-color: #d4a373; /* Cake Brown */
+            --secondary-color: #faedcd; /* Cream */
+            --accent-color: #e5989b; /* Soft Pink */
+            --text-dark: #333;
+            --text-light: #fff;
+            --whatsapp-green: #25D366;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: #fff;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--secondary-color);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Mobile Menu Button */
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        #home {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--text-light);
+        }
+
+        #home h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        #home p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            padding: 10px 25px;
+            background-color: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            background-color: #d68c8f;
+        }
+
+        /* Products Section */
+        #products {
+            padding: 4rem 5%;
+            background-color: #fff;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+            font-size: 2.5rem;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            border: 1px solid #eee;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .price {
+            color: var(--accent-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin: 10px 0;
+            display: block;
+        }
+
+        /* About Section */
+        #about {
+            padding: 4rem 5%;
+            background-color: var(--secondary-color);
+            text-align: center;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Contact Section */
+        #contact {
+            padding: 4rem 5%;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .contact-info {
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--whatsapp-green);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.4);
+            transition: background 0.3s;
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #1ebc57;
+        }
+
+        .whatsapp-icon {
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-dark);
+            color: var(--text-light);
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                background-color: var(--secondary-color);
+                width: 100%;
+                text-align: center;
+                padding: 1rem 0;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            #home h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Sweet Cake Bakery</div>
+        <div class="menu-toggle" id="mobile-menu">
+            &#9776; <!-- Hamburger Icon -->
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home">
+        <h1>Baking Happiness in Mumbai</h1>
+        <p>Freshly baked cakes, pastries, and sweets made with love.</p>
+        <a href="#products" class="btn">View Menu</a>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products">
+        <h2 class="section-title">Our Delights</h2>
+        <div class="product-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Chocolate Cake">
+                <div class="product-info">
+                    <h3>Rich Chocolate Cake</h3>
+                    <span class="price">₹850</span>
+                    <button class="btn" onclick="orderItem('Chocolate Cake')">Order Now</button>
+                </div>
+            </div>
+            <!-- Product 2 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Strawberry Cake">
+                <div class="product-info">
+                    <h3>Strawberry Delight</h3>
+                    <span class="price">₹950</span>
+                    <button class="btn" onclick="orderItem('Strawberry Cake')">Order Now</button>
+                </div>
+            </div>
+            <!-- Product 3 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Cupcakes">
+                <div class="product-info">
+                    <h3>Assorted Cupcakes</h3>
+                    <span class="price">₹300 / Dozen</span>
+                    <button class="btn" onclick="orderItem('Cupcakes')">Order Now</button>
+                </div>
+            </div>
+            <!-- Product 4 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1535141192574-5d4897c12636?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Macarons">
+                <div class="product-info">
+                    <h3>French Macarons</h3>
+                    <span class="price">₹450 / Box</span>
+                    <button class="btn" onclick="orderItem('Macarons')">Order Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">About Us</h2>
+        <div class="about-content">
+            <p>Welcome to <strong>Sweet Cake Bakery</strong>, Mumbai's favorite destination for artisanal baking. Established in 2010, we pride ourselves on using only the finest ingredients—real butter, fresh cream, and premium chocolate. Whether it's a birthday celebration or a simple craving, our bakers are dedicated to making every bite a sweet memory.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title">Contact Us</h2>
+        <div class="contact-info">
+            <p><strong>📍 Location:</strong> Marine Drive, Mumbai, Maharashtra</p>
+            <p><strong>📞 Call Us:</strong> 9876543210</p>
+            <p><strong>📧 Email:</strong> orders@sweetcakebakery.com</p>
+        </div>
+        
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/919876543210" class="whatsapp-btn" target="_blank">
+            <span class="whatsapp-icon">💬</span> Order via WhatsApp
+        </a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 Sweet Cake Bakery. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Simple Order Alert
+        function orderItem(itemName) {
+            alert(
